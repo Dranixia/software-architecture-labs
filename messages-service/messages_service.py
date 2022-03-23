@@ -1,6 +1,5 @@
 from flask import Flask, request
 
-# , static_folder='/messages'
 app = Flask(__name__)
 
 
@@ -10,4 +9,4 @@ def mess_requests():
 
 
 if __name__ == '__main__':
-    app.run(port=8880)
+    app.run(port=8082)

@@ -14,17 +14,17 @@ def requests():
         r_l = get(l_url).content.decode("utf-8")
         r_m = get(m_url).content.decode("utf-8")
 
-        return "Logging-service response: " + '\n' + r_l + "Messages-service response: " + r_m
+        return "Logging-service response: " + r_l + "\nMessages-service response: " + r_m + '\n'
 
     if request.method == 'POST':
-        mssg = request.get_data()
+        message = request.get_data()
 
-        mssg_uuid = str(uuid.uuid4())
+        m_uuid = str(uuid.uuid4())
 
-        logging_url = "http://127.0.0.1:8000/logging"
-        r = post(logging_url, data={mssg_uuid: mssg})
+        logging_url = "http://localhost:8081/logging"
+        r = post(logging_url, data={m_uuid: message})
 
-        return mssg
+        return r.status_code
 
 
 if __name__ == '__main__':
