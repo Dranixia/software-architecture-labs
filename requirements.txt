@@ -1,1 +1,2 @@
 hazelcast-python-client
+flask

@@ -1,49 +1,31 @@
-# Lab 2: Hazelcast Basics
+# Homework 3
 
-## Requirments:
+## Requirements
 
+```shell
+pip3 install -r requirements.txt
 ```
-pip install -r requirements.txt
+
+## Usage
+
+Run 1 facade, 1 messaging, 3 logging services and execute HTTP file
+
+```shell
+python3 facade-service/facade_service.py 8080
+python3 messages-service/messages_service.py 8081
+python3 logging-service/logging_service.py 8082
+python3 logging-service/logging_service.py 8083
+python3 logging-service/logging_service.py 8084
 ```
 
-## Results
+## Comments
 
-### Task 1
+![](img/result1.png)
+![](img/result2.png)
+![](img/result3.png)
+![](img/result4.png)
+![](img/result5.png)
 
-Hazelcast installed
+After stopping 1 logging service, we start getting errors both in python console and http requests
 
-### Task 2 
-
-![](img/task2.png)
-
-### Task 3
-
-Distributed Map with 3 nodes:
-
-![](img/task3_1.png)
-
-After deleting 1 of the nodes: 
-
-![](img/task3_2.png)
-
-### Task 4
-
-Without locking:
-
-![](img/task4_1.png)
-
-Optimistic locking:
-
-![](img/task4_2.png)
-
-Pessimistic locking:
-
-![](img/task4_3.png)
-
-### Task 5
-
-The bounding of queue must be made using .xml file.
-
-If there is no reading and the queue is filled, the writer will wait until the queue is popped.
-
-During reading from 2 clients, there were no data races, and all the values were properly read and printed.
+![](img/error.png)
