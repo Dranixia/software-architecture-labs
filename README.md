@@ -1,4 +1,4 @@
-# Lab 1: Micro-service basics
+# Lab 2: Hazelcast Basics
 
 ## Requirments:
 
@@ -6,28 +6,44 @@
 pip install -r requirements.txt
 ```
 
-## Usage:
-To run the services (separately if needed):
+## Results
 
-```
-python3 facade-service/facade_service.py
-python3 logging-service/logging_service.py
-python3 messages-service/messages_service.py
-```
+### Task 1
 
-To send POST/GET requests using curl (or any other app of your preference):
+Hazelcast installed
 
-```
-curl -X POST [url] -d [message]:
+### Task 2 
 
-curl -X POST http://localhost:8080/facade -d "Blablabla"
-```
-```
-curl -X GET [url]
+![](img/task2.png)
 
-curl -X GET http://localhost:8080/facade
-```
+### Task 3
 
-## Results:
+Distributed Map with 3 nodes:
 
-See results in PDF file
+![](img/task3_1.png)
+
+After deleting 1 of the nodes: 
+
+![](img/task3_2.png)
+
+### Task 4
+
+Without locking:
+
+![](img/task4_1.png)
+
+Optimistic locking:
+
+![](img/task4_2.png)
+
+Pessimistic locking:
+
+![](img/task4_3.png)
+
+### Task 5
+
+The bounding of queue must be made using .xml file.
+
+If there is no reading and the queue is filled, the writer will wait until the queue is popped.
+
+During reading from 2 clients, there were no data races, and all the values were properly read and printed.

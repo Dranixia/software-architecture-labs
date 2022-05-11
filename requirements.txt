@@ -1,2 +1,1 @@
-flask
-requests~=2.27.1
+hazelcast-python-client
