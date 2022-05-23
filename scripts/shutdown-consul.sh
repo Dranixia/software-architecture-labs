@@ -1,0 +1,2 @@
+docker stop consul_butynets
+docker rm consul_butynets

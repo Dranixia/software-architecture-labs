@@ -8,7 +8,19 @@ pip3 install -r requirements.txt
 
 ## Usage
 
-Run 1 facade, 2 messaging, 3 logging services and execute HTTP file
+Run 3 instances of Hazelcast node
+
+```shell
+hazelcast-5.1.1/bin/hz start  # 3 times
+```
+
+Run consul with the script (give x permission before that)
+```shell
+chmod +x ./scripts/*.sh
+./scripts/run-consul.sh
+```
+
+Run 1 facade, 2 messaging, 3 logging services and execute HTTP file in PyCharm
 
 ```shell
 python3 facade-service/facade_service.py 8080
@@ -19,11 +31,18 @@ python3 messages-service/messages_service.py 8084
 python3 messages-service/messages_service.py 8085
 ```
 
-## Comments
+Stop consul with 
+```shell
+./scripts/shutdown-consul.sh
+```
 
-![](img/result1.png)
-![](img/result2.png)
-![](img/result3.png)
-![](img/result4.png)
-![](img/result5.png)
-![](img/result6.png)
+## Images
+The get response
+![](img/img1.png)
+![](img/facade.png)
+![](img/log1.png)
+![](img/log2.png)
+![](img/log3.png)
+I still don't know why only first message service gets everything
+![](img/ms1.png)
+![](img/ms2.png)
