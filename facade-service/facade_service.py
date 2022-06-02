@@ -12,7 +12,7 @@ except:
     raise AttributeError("Must specify port (int) before running the app!\n")
 
 session = consul.Consul(host='localhost', port=8500)
-session.agent.service.register('facade-service', port=port, service_id=f"facade-{str(uuid.uuid4())}")
+session.agent.service.register('facade-service', port=port, service_id=f"f_{str(uuid.uuid4())}")
 
 app = Flask(__name__)
 
@@ -22,10 +22,10 @@ logging_clients = []
 messages_clients = []
 
 for key, value in services.items():
-    service_type = key.split("-")[0]
-    if service_type == "logging":
+    service_type = key.split("_")[0]
+    if service_type == "l":
         logging_clients.append(f"http://localhost:{value['Port']}/logging")
-    elif service_type == "messages":
+    elif service_type == "m":
         messages_clients.append(f"http://localhost:{value['Port']}/messages")
 
 client = hazelcast.HazelcastClient(cluster_name="dev",

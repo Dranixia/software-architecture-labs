@@ -11,7 +11,7 @@ except:
     raise AttributeError("Must specify port (int) before running the app!\n")
 
 session = consul.Consul(host='localhost', port=8500)
-session.agent.service.register('messages-service', port=port, service_id=f"messages-{str(uuid.uuid4())}")
+session.agent.service.register('messages-service', port=port, service_id=f"m_{str(uuid.uuid4())}")
 
 app = Flask(__name__)
 
